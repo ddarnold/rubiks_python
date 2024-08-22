@@ -3,8 +3,8 @@ import numpy as np
 class Cube:
     def __init__(self):
         self.faces = {
-            'U': np.full((3, 3), 'W'),
-            'D': np.full((3, 3), 'Y'),
+            'U': np.full((3, 3), 'Y'),
+            'D': np.full((3, 3), 'W'),
             'F': np.full((3, 3), 'G'),
             'B': np.full((3, 3), 'B'),
             'L': np.full((3, 3), 'R'),
