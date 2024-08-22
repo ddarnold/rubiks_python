@@ -7,8 +7,8 @@ class Cube:
             'D': np.full((3, 3), 'Y'),
             'F': np.full((3, 3), 'G'),
             'B': np.full((3, 3), 'B'),
-            'L': np.full((3, 3), 'O'),
-            'R': np.full((3, 3), 'R')
+            'L': np.full((3, 3), 'R'),
+            'R': np.full((3, 3), 'O')
         }
 
     def rotate_face_clockwise(self, face):
@@ -27,7 +27,7 @@ class Cube:
         elif move == 'R\'':
             self.rotate_face_counterclockwise('R')
             # Implement adjacent updates
-        # TODO: 2Add other moves (L, U, D, F, B)
+        # TODO: Add other moves (L, U, D, F, B)
 
     def is_solved(self):
         return all(np.all(face == face[0, 0]) for face in self.faces.values())
