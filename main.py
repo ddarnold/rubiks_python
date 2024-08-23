@@ -1,15 +1,22 @@
 from Cube.cube import Cube
+from Cube.moves import apply_moves
 from Visualization.graphical_visualization import CubeVisualizer
 
 def main():
     # Initialize the cube
     cube = Cube()
+    visualizer = CubeVisualizer(cube)
+
     
     # Display the initial state of the cube
-    visualizer = CubeVisualizer(cube)
-    print("Initial Cube State:")
-    visualizer.plot_cube()    
-    # print(cube)
+    # print("Initial Cube State:")
+    # visualizer.plot_cube()    
+    
+    # Display the Changed state of the cube
+    cube.make_giftbox()
+    apply_moves(cube, 'R')
+    visualizer.plot_cube()
+    
     
 if __name__ == "__main__":
     main()
