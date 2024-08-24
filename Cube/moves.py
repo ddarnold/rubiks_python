@@ -15,16 +15,22 @@ def apply_moves(cube, moves_str):
             i += 1  # Move forward by 1 character
             
     move_functions = {
-        'R': __R,
-        'R\'': __R_prime,
         'L': __L,
         'L\'': __L_prime,
+        'M': __M,
+        'M\'': __M_prime,
+        'R': __R,
+        'R\'': __R_prime,
         'U': __U,
         'U\'': __U_prime,
+        'E': __E,
+        'E\'': __E_prime,
         'D': __D,
         'D\'': __D_prime,
         'F': __F,
         'F\'': __F_prime,
+        'S': __S,
+        'S\'': __S_prime,
         'B': __B,
         'B\'': __B_prime
     }
@@ -41,6 +47,12 @@ def __L_prime(cube):
     cube.rotate_face_counterclockwise('L')
     cube.rotate_slice('y', 0, 'clockwise')
 
+def __M(cube):
+    cube.rotate_slice('y', 1, 'counterclockwise')
+
+def __M_prime(cube):
+    cube.rotate_slice('y', 1, 'counterclockwise')
+
 def __R(cube):
     cube.rotate_face_clockwise('R')
     cube.rotate_slice('y', 2, 'clockwise')
@@ -56,6 +68,12 @@ def __U(cube):
 def __U_prime(cube):
     cube.rotate_face_counterclockwise('U')
     cube.rotate_slice('x', 0, "counterclockwise")   
+
+def __E(cube):
+    cube.rotate_slice('x', 1, 'counterclockwise')
+
+def __E_prime(cube):
+    cube.rotate_slice('x', 1, "clockwise")
     
 def __D(cube):
     cube.rotate_face_clockwise('D')
@@ -71,7 +89,13 @@ def __F(cube):
 
 def __F_prime(cube):
     cube.rotate_face_counterclockwise('F')
-    cube.rotate_slice('z', 0, "counterclockwise")   
+    cube.rotate_slice('z', 0, "counterclockwise")
+    
+def __S(cube):
+    cube.rotate_slice('z', 1, 'clockwise')
+
+def __S_prime(cube):
+    cube.rotate_slice('z', 1, "counterclockwise")   
 
 def __B(cube):
     cube.rotate_face_clockwise('B')
@@ -79,5 +103,10 @@ def __B(cube):
 
 def __B_prime(cube):
     cube.rotate_face_counterclockwise('B')
-    cube.rotate_slice('z', 2, "counterclockwise")   
-    
+    cube.rotate_slice('z', 2, "counterclockwise")
+      
+def  __X(cube):
+    cube.rotate_face_counterclockwise('L')
+    cube.rotate_face_counterclockwise('R')
+    cube.face
+
