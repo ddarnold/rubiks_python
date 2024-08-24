@@ -14,9 +14,7 @@ def main():
     
     # Display the Changed state of the cube
     cube.make_minority_cross()
-    apply_moves(cube, 'D')
-    visualizer.plot_cube()
-    apply_moves(cube, 'Dp')
+    apply_moves(cube, 'LR\'L')
     visualizer.plot_cube()
     
     

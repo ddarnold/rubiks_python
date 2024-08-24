@@ -1,6 +1,38 @@
 from Cube.cube import Cube
 import numpy as np
 
+def apply_moves(cube, moves_str):
+    moves_list = []
+    i = 0
+
+    while i < len(moves_str):
+        # Check if the next character is a single quote
+        if i + 1 < len(moves_str) and moves_str[i + 1] == "'":
+            moves_list.append(moves_str[i:i+2])  # Append the character and the quote as a single move
+            i += 2  # Move forward by 2 characters
+        else:
+            moves_list.append(moves_str[i])  # Append the single character
+            i += 1  # Move forward by 1 character
+            
+    move_functions = {
+        'R': __R,
+        'R\'': __R_prime,
+        'L': __L,
+        'L\'': __L_prime,
+        'U': __U,
+        'U\'': __U_prime,
+        'D': __D,
+        'D\'': __D_prime,
+        'F': __F,
+        'F\'': __F_prime,
+        'B': __B,
+        'B\'': __B_prime
+    }
+    
+    for move in moves_list:
+        move_functions[move](cube)
+
+# Basic rotations ##########################################
 def __L(cube):
     cube.rotate_face_clockwise('L')
     cube.rotate_slice('y', 0, 'counterclockwise')
@@ -49,22 +81,3 @@ def __B_prime(cube):
     cube.rotate_face_counterclockwise('B')
     cube.rotate_slice('z', 2, "counterclockwise")   
     
-
-def apply_moves(cube, moves_str):
-    moves = moves_str.split()
-    move_functions = {
-        'R': __R,
-        'Rp': __R_prime,
-        'L': __L,
-        'Lp': __L_prime,
-        'U': __U,
-        'Up': __U_prime,
-        'D': __D,
-        'Dp': __D_prime,
-        'F': __F,
-        'Fp': __F_prime,
-        'B': __B,
-        'Bp': __B_prime
-    }
-    for move in moves:
-        move_functions[move](cube)
