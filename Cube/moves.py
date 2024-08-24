@@ -5,9 +5,8 @@ def __L(cube):
     cube.rotate_face_clockwise('L')
     cube.rotate_slice('y', 0, 'counterclockwise')
 
-    
 def __L_prime(cube):
-    cube.rotate_face_counterclockwise('R')
+    cube.rotate_face_counterclockwise('L')
     cube.rotate_slice('y', 0, 'clockwise')
 
 def __R(cube):
@@ -28,11 +27,11 @@ def __U_prime(cube):
     
 def __D(cube):
     cube.rotate_face_clockwise('D')
-    cube.rotate_slice('x', 2, 'clockwise')
+    cube.rotate_slice('x', 2, 'counterclockwise')
 
 def __D_prime(cube):
     cube.rotate_face_counterclockwise('D')
-    cube.rotate_slice('x', 2, "counterclockwise")   
+    cube.rotate_slice('x', 2, "clockwise")   
     
 def __F(cube):
     cube.rotate_face_clockwise('F')

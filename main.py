@@ -13,8 +13,10 @@ def main():
     # visualizer.plot_cube()    
     
     # Display the Changed state of the cube
-    cube.make_giftbox()
-    apply_moves(cube, 'R')
+    cube.make_minority_cross()
+    apply_moves(cube, 'D')
+    visualizer.plot_cube()
+    apply_moves(cube, 'Dp')
     visualizer.plot_cube()
     
     

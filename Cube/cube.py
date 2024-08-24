@@ -35,16 +35,16 @@ class Cube:
 
     def __rotate_x(self, slice_index, direction):
         if direction == 'clockwise':
-            temp = self.faces['U'][slice_index, :].copy()
-            self.faces['U'][slice_index, :] = self.faces['R'][slice_index, :]
-            self.faces['R'][slice_index, :] = self.faces['D'][slice_index, :]
-            self.faces['D'][slice_index, :] = self.faces['L'][slice_index, :]
+            temp = self.faces['F'][slice_index, :].copy()
+            self.faces['F'][slice_index, :] = self.faces['R'][slice_index, :]
+            self.faces['R'][slice_index, :] = self.faces['B'][slice_index, :]
+            self.faces['B'][slice_index, :] = self.faces['L'][slice_index, :]
             self.faces['L'][slice_index, :] = temp
         else:  # counterclockwise
-            temp = self.faces['U'][slice_index, :].copy()
-            self.faces['U'][slice_index, :] = self.faces['L'][slice_index, :]
-            self.faces['L'][slice_index, :] = self.faces['D'][slice_index, :]
-            self.faces['D'][slice_index, :] = self.faces['R'][slice_index, :]
+            temp = self.faces['F'][slice_index, :].copy()
+            self.faces['F'][slice_index, :] = self.faces['L'][slice_index, :]
+            self.faces['L'][slice_index, :] = self.faces['B'][slice_index, :]
+            self.faces['B'][slice_index, :] = self.faces['R'][slice_index, :]
             self.faces['R'][slice_index, :] = temp
 
     def __rotate_y(self, slice_index, direction):
@@ -98,9 +98,9 @@ class Cube:
         self.faces['D'] = np.array([['W', 'Y', 'W'],
                                     ['Y', 'W', 'Y'],
                                     ['W', 'Y', 'W']])
-        self.faces['F'] =  np.array([['G', 'B', 'G'],
-                                     ['B', 'G', 'B'],
-                                     ['G', 'B', 'G']])
+        self.faces['F'] = np.array([['G', 'B', 'G'],
+                                    ['B', 'G', 'B'],
+                                    ['G', 'B', 'G']])
         self.faces['B'] = np.array([['B', 'G', 'B'],
                                     ['G', 'B', 'G'],
                                     ['B', 'G', 'B']])
@@ -118,9 +118,9 @@ class Cube:
         self.faces['D'] = np.array([['Y', 'W', 'Y'],
                                     ['W', 'W', 'W'],
                                     ['Y', 'W', 'Y']])
-        self.faces['F'] =  np.array([['O', 'G', 'R'],
-                                     ['O', 'G', 'R'],
-                                     ['O', 'G', 'R']])
+        self.faces['F'] = np.array([['O', 'G', 'R'],
+                                    ['O', 'G', 'R'],
+                                    ['O', 'G', 'R']])
         self.faces['B'] = np.array([['R', 'B', 'O'],
                                     ['R', 'B', 'O'],
                                     ['R', 'B', 'O']])
@@ -130,6 +130,26 @@ class Cube:
         self.faces['R'] = np.array([['B', 'O', 'G'],
                                     ['B', 'O', 'G'],
                                     ['B', 'O', 'G']])
+        
+    def make_minority_cross(self):
+        self.faces['U'] = np.array([['G', 'O', 'G'],
+                                    ['W', 'Y', 'B'],
+                                    ['G', 'R', 'G']])
+        self.faces['D'] = np.array([['B', 'O', 'B'],
+                                    ['Y', 'W', 'R'],
+                                    ['B', 'G', 'B']])
+        self.faces['F'] = np.array([['Y', 'B', 'Y'],
+                                    ['R', 'G', 'O'],
+                                    ['Y', 'W', 'Y']])
+        self.faces['B'] = np.array([['W', 'G', 'W'],
+                                    ['O', 'B', 'R'],
+                                    ['W', 'Y', 'W']])
+        self.faces['L'] = np.array([['O', 'G', 'O'],
+                                    ['W', 'R', 'Y'],
+                                    ['O', 'B', 'O']])
+        self.faces['R'] = np.array([['R', 'W', 'R'],
+                                    ['B', 'O', 'Y'],
+                                    ['R', 'G', 'R']])
 
     def is_solved(self):
         return all(np.all(face == face[0, 0]) for face in self.faces.values())
