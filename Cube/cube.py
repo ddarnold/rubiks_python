@@ -6,10 +6,10 @@ class Cube:
         self.faces = {
             'U': np.full((3, 3), 'Y'),
             'D': np.full((3, 3), 'W'),
-            'F': np.full((3, 3), 'G'),
-            'B': np.full((3, 3), 'B'),
-            'L': np.full((3, 3), 'R'),
-            'R': np.full((3, 3), 'O')
+            'F': np.full((3, 3), 'B'),
+            'B': np.full((3, 3), 'G'),
+            'L': np.full((3, 3), 'O'),
+            'R': np.full((3, 3), 'R')
         }
 
     def is_solved(self):

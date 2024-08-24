@@ -7,14 +7,7 @@ def main():
     cube = Cube()
     visualizer = CubeVisualizer(cube)
 
-    
-    # Display the initial state of the cube
-    # print("Initial Cube State:")
-    # visualizer.plot_cube()    
-    
-    # Display the Changed state of the cube
-    cube.make_minority_cross()
-    apply_move_sequence(cube, 'LLD\'BBLLBBD\'FFDU\'BBLBBF\'LB\'FU\'F\'ULL')
+    # apply_move_sequence(cube, 'LLD\'BBLLBBD\'FFDU\'BBLBBF\'LB\'FU\'F\'ULL')
     visualizer.plot_cube()
     
     
