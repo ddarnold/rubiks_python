@@ -1,5 +1,5 @@
 from Cube.cube import Cube
-from Cube.moves import apply_moves
+from Cube.moves import apply_move_sequence
 from Visualization.graphical_visualization import CubeVisualizer
 
 def main():
@@ -14,7 +14,7 @@ def main():
     
     # Display the Changed state of the cube
     cube.make_minority_cross()
-    apply_moves(cube, 'LR\'L')
+    apply_move_sequence(cube, 'LLD\'BBLLBBD\'FFDU\'BBLBBF\'LB\'FU\'F\'ULL')
     visualizer.plot_cube()
     
     
