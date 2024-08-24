@@ -1,15 +1,7 @@
-from Cube.cube import Cube
-from Cube.moves import apply_move_sequence
-from Visualization.graphical_visualization import CubeVisualizer
+from UI.graphical_interface import main as start_gui
 
 def main():
-    # Initialize the cube
-    cube = Cube()
-    visualizer = CubeVisualizer(cube)
-
-    # apply_move_sequence(cube, 'LLD\'BBLLBBD\'FFDU\'BBLBBF\'LB\'FU\'F\'ULL')
-    visualizer.plot_cube()
-    
+    start_gui()
     
 if __name__ == "__main__":
     main()

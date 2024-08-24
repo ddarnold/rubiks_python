@@ -25,9 +25,7 @@ class CubeVisualizer:
         ax.set_xticks([])  # Remove x-axis ticks
         ax.set_yticks([])  # Remove y-axis ticks
 
-    def plot_cube(self):
-        fig, axs = plt.subplots(3, 4, figsize=(8, 6))
-
+    def plot_cube(self, ax):
         # Layout mapping for the cube faces (top view)
         layout = {
             'U': (0, 1),
@@ -40,14 +38,12 @@ class CubeVisualizer:
 
         # Plot each face in its respective subplot
         for face, (row, col) in layout.items():
-            self.plot_face(axs[row, col], self.cube.faces[face])
-            axs[row, col].set_title(f"{face} face")
+            self.plot_face(ax[row, col], self.cube.faces[face])
+            ax[row, col].set_title(f"{face} face")
 
         # Hide unused subplots
         for i in range(3):
             for j in range(4):
                 if (i, j) not in layout.values():
-                    axs[i, j].axis('off')
-
-        plt.show()
+                    ax[i, j].axis('off')
         
