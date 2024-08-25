@@ -87,7 +87,7 @@ class Cube:
                 self.faces['U'][2, :] = self.faces['L'][:, 2][::-1]
                 self.faces['L'][:, 2] = self.faces['D'][0, :]
                 self.faces['D'][0, :] = self.faces['R'][:, 0][::-1]
-                self.faces['R'][:, 0] = temp[::-1]
+                self.faces['R'][:, 0] = temp
             elif slice_index == 1:
                 temp = self.faces['U'][1, :].copy()
                 self.faces['U'][1, :] = self.faces['L'][:, 1][::-1]
@@ -98,8 +98,8 @@ class Cube:
                 temp = self.faces['U'][0, :].copy()
                 self.faces['U'][0, :] = self.faces['R'][:, 2]
                 self.faces['R'][:, 2] = self.faces['D'][2, :][::-1]
-                self.faces['D'][2, :] = self.faces['L'][:, 0][::-1]
-                self.faces['L'][:, 0] = temp
+                self.faces['D'][2, :] = self.faces['L'][:, 0]
+                self.faces['L'][:, 0] = temp[::-1]
         else:  # counterclockwise
             if slice_index == 0:
                 temp = self.faces['U'][2, :].copy()
@@ -117,7 +117,7 @@ class Cube:
                 temp = self.faces['U'][0, :].copy()
                 self.faces['U'][0, :] = self.faces['L'][:, 0][::-1]
                 self.faces['L'][:, 0] = self.faces['D'][2, :]
-                self.faces['D'][2, :] = self.faces['R'][:, 2]
+                self.faces['D'][2, :] = self.faces['R'][:, 2][::-1]
                 self.faces['R'][:, 2] = temp
 #############################################################
 
