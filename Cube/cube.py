@@ -85,8 +85,8 @@ class Cube:
             if slice_index == 0:
                 temp = self.faces['U'][2, :].copy()
                 self.faces['U'][2, :] = self.faces['L'][:, 2][::-1]
-                self.faces['L'][:, 2] = self.faces['D'][0, :][::-1]
-                self.faces['D'][0, :] = self.faces['R'][:, 0]
+                self.faces['L'][:, 2] = self.faces['D'][0, :]
+                self.faces['D'][0, :] = self.faces['R'][:, 0][::-1]
                 self.faces['R'][:, 0] = temp[::-1]
             elif slice_index == 1:
                 temp = self.faces['U'][1, :].copy()
@@ -103,7 +103,7 @@ class Cube:
         else:  # counterclockwise
             if slice_index == 0:
                 temp = self.faces['U'][2, :].copy()
-                self.faces['U'][2, :] = self.faces['R'][:, 0][::-1]
+                self.faces['U'][2, :] = self.faces['R'][:, 0]
                 self.faces['R'][:, 0] = self.faces['D'][0, :][::-1]
                 self.faces['D'][0, :] = self.faces['L'][:, 2]
                 self.faces['L'][:, 2] = temp[::-1]
@@ -182,7 +182,27 @@ class Cube:
         self.faces['R'] = np.array([['R', 'W', 'R'],
                                     ['B', 'O', 'Y'],
                                     ['R', 'G', 'R']])
-    
+   
+    def make_perfect_scramble(self):
+        self.faces['U'] = np.array([['O', 'R', 'Y'],
+                                    ['G', 'W', 'B'],
+                                    ['B', 'R', 'G']])
+        self.faces['D'] = np.array([['R', 'W', 'B'],
+                                    ['O', 'Y', 'O'],
+                                    ['G', 'B', 'R']])
+        self.faces['F'] = np.array([['O', 'Y', 'W'],
+                                    ['W', 'G', 'B'],
+                                    ['Y', 'O', 'R']])
+        self.faces['B'] = np.array([['O', 'G', 'W'],
+                                    ['R', 'B', 'Y'],
+                                    ['G', 'O', 'W']])
+        self.faces['L'] = np.array([['B', 'W', 'Y'],
+                                    ['G', 'O', 'R'],
+                                    ['R', 'Y', 'B']])
+        self.faces['R'] = np.array([['O', 'W', 'G'],
+                                    ['Y', 'R', 'B'],
+                                    ['W', 'G', 'Y']])
+  
     def make_solved(self):
         self.faces['U'] = np.array([['Y', 'Y', 'Y'],
                                     ['Y', 'Y', 'Y'],

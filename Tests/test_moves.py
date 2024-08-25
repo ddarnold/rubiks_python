@@ -780,7 +780,7 @@ class TestRubiksCubeMoves(unittest.TestCase):
 
     def test_apply_moves_sequence(self):
         """Test applying a sequence of moves."""
-        sequence = "LLU\'FUF\'BL\'FBBL\'BBUD\'FFDBBLLBBDLL"
+        sequence = "YYLLU\'FUF\'BL\'FBBL\'BBUD\'FFDBBLLBBDLL"
         
         apply_move_sequence(self.cube, sequence)
         self.assertTrue(self.cube.is_solved(), "Apply moves sequence failed.")
@@ -790,22 +790,22 @@ if __name__ == '__main__':
     unittest.main()
 
 """ 
-        expected_U = np.array([['G', 'O', 'G'],
-                               ['W', 'Y', 'B'],
-                               ['G', 'R', 'G']])
-        expected_D = np.array([['B', 'O', 'B'],
-                               ['Y', 'W', 'R'],
-                               ['B', 'G', 'B']])
-        expected_F = np.array([['Y', 'B', 'Y'],
-                               ['R', 'G', 'O'],
-                               ['Y', 'W', 'Y']])
-        expected_B = np.array([['W', 'G', 'W'],
-                               ['O', 'B', 'R'],
-                               ['W', 'Y', 'W']])
-        expected_L = np.array([['O', 'G', 'O'],
-                               ['W', 'R', 'Y'],
-                               ['O', 'B', 'O']])
-        expected_R = np.array([['R', 'W', 'R'],
-                               ['B', 'O', 'Y'],
-                               ['R', 'G', 'R']])
+        self.faces['U'] = np.array([['O', 'R', 'Y'],
+                                    ['G', 'W', 'B'],
+                                    ['B', 'R', 'G']])
+        self.faces['D'] = np.array([['R', 'W', 'B'],
+                                    ['O', 'Y', 'O'],
+                                    ['G', 'B', 'R']])
+        self.faces['F'] = np.array([['O', 'Y', 'W'],
+                                    ['W', 'G', 'B'],
+                                    ['Y', 'O', 'R']])
+        self.faces['B'] = np.array([['O', 'G', 'W'],
+                                    ['R', 'B', 'Y'],
+                                    ['G', 'O', 'W']])
+        self.faces['L'] = np.array([['B', 'W', 'Y'],
+                                    ['G', 'O', 'R'],
+                                    ['R', 'Y', 'B']])
+        self.faces['R'] = np.array([['O', 'W', 'G'],
+                                    ['Y', 'R', 'B'],
+                                    ['W', 'G', 'Y']])
 """
